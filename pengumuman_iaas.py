@@ -123,7 +123,7 @@ if submit_button:
                 st.success("🎉 **SELAMAT! kamu LOLOS BERKAS, harap perhatikan Department untuk tahap INTERNSHIP**")
                 st.info("Silakan melanjutkan ke tahap pengisian jadwal Interview melalui tombol di bawah ini.")
                 
-                link_sps = "https://forms.google.com/example-link-jadwal-sps"
+                link_sps = "https://docs.google.com/spreadsheets/d/1azmboGYBXHWY31AjVfZqfB7LrCHO1P11gO0n39g4nc4/edit?usp=sharing"
                 
                 st.link_button(
                     label="📅 Klik di Sini untuk Mengisi Jadwal Interview", 
