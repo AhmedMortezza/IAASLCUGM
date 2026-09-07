@@ -255,9 +255,7 @@ if submit_button:
         )
       else:
         st.error(""❌ **LU DAH JADI ANGGOTA KOCAK 🖐️🤪🖐️**"")
-        st.write(
-            "Dah lu jadi member yang baik aja dah kata gw"
-        )
+        st.write("Dah lu jadi member yang baik aja dah kata gw")
 
     else:
       st.warning("⚠️ **Data Tidak Ditemukan.**")
