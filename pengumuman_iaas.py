@@ -254,10 +254,9 @@ if submit_button:
             use_container_width=True,
         )
       else:
-        st.error("❌ **MOHON MAAF, Anda Dinyatakan BELUM LOLOS.**")
+        st.error(""❌ **LU DAH JADI ANGGOTA KOCAK 🖐️🤪🖐️**"")
         st.write(
-            "Terima kasih telah berpartisipasi dalam Seleksi IAAS LC UGM 2026."
-            " Tetap semangat!"
+            "Dah lu jadi member yang baik aja dah kata gw"
         )
 
     else:
