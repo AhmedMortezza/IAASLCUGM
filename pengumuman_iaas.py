@@ -254,7 +254,7 @@ if submit_button:
             use_container_width=True,
         )
       else:
-        st.error(""❌ **LU DAH JADI ANGGOTA KOCAK 🖐️🤪🖐️**"")
+        st.error("❌ **LU DAH JADI ANGGOTA KOCAK 🖐️🤪🖐️**")
         st.write("Dah lu jadi member yang baik aja dah kata gw")
 
     else:
