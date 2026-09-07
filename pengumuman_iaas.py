@@ -13,7 +13,7 @@ st.set_page_config(
 )
 
 
-# read background
+# Read Background
 def get_base64_of_bin_file(bin_file):
   with open(bin_file, "rb") as f:
     data = f.read()
@@ -66,15 +66,9 @@ if bg_image_file and os.path.exists(bg_image_file):
     }}
     """
 
-# Custom when dark mode
+# Custom Styling 
 main_css = """
-/* Force warna teks gelap pada seluruh komponen di dalam container */
-.block-container, .block-container p, .block-container span, 
-.block-container label, .block-container div, [data-testid="stMarkdownContainer"] p {
-    color: #1f2937 !important;
-}
-
-/* Box Putih Transparan Khusus Tempat Konten */
+/* 1. Box Putih Transparan Container Utama */
 .block-container {
     background-color: rgba(255, 255, 255, 0.94) !important;
     padding: 2.5rem 2rem !important;
@@ -85,13 +79,15 @@ main_css = """
     backdrop-filter: blur(4px) !important;
 }
 
-/* Mengurangi jarak bawah gambar logo */
-[data-testid="stImage"] {
-    margin-bottom: -15px !important;
+/* 2. Teks Biasa Dikunci Gelap (Agar Kelihatan di Dark Mode) */
+.block-container p, 
+.block-container label, 
+[data-testid="stMarkdownContainer"] p {
+    color: #1f2937 !important;
 }
 
-/* Menarik tulisan pengumuman lebih dekat ke logo */
-h1 {
+/* 3. Judul H1 Dikunci HIJAU IAAS (#1E5631) */
+h1, h1 *, [data-testid="stMarkdownContainer"] h1 {
     color: #1E5631 !important;
     font-weight: 700 !important;
     margin-top: -25px !important;
@@ -99,7 +95,12 @@ h1 {
     line-height: 1.2 !important;
 }
 
-/* Form & Input Field Text Fix untuk Dark Mode */
+/* 4. Logo Spacing */
+[data-testid="stImage"] {
+    margin-bottom: -15px !important;
+}
+
+/* 5. Box Form Input */
 div[data-testid="stForm"] {
     background-color: #ffffff !important;
     border-radius: 12px !important;
@@ -108,13 +109,38 @@ div[data-testid="stForm"] {
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04) !important;
 }
 
-/* Memastikan teks yang diketik di input tetap berwarna gelap */
-input[type="text"], .stTextInput input {
+/* Teks Didalam Kolom Input */
+div[data-testid="stForm"] input {
     color: #1f2937 !important;
-    background-color: #ffffff !important;
+    background-color: #f8fafc !important;
+    border: 1px solid #cbd5e1 !important;
 }
 
-/* Detail Card Hasil */
+/* 6. Tombol "Cari" & Link Button Hijau Solid + Teks/Ikon Putih */
+div[data-testid="stForm"] button, 
+div.stButton > button, 
+div.stLinkButton > a {
+    background-color: #1E5631 !important;
+    border-radius: 8px !important;
+    font-weight: bold !important;
+    border: none !important;
+    transition: 0.3s !important;
+}
+
+/* Paksa Semua Isi Tombol (Ikon Loop & Teks) Berwarna PUTIH */
+div[data-testid="stForm"] button *, 
+div.stButton > button *, 
+div.stLinkButton > a * {
+    color: #ffffff !important;
+}
+
+div[data-testid="stForm"] button:hover, 
+div.stButton > button:hover, 
+div.stLinkButton > a:hover {
+    background-color: #143F23 !important;
+}
+
+/* 7. Card Detail Hasil */
 .detail-card {
     background-color: #ffffff !important;
     padding: 20px;
@@ -125,32 +151,17 @@ input[type="text"], .stTextInput input {
     margin-bottom: 20px;
 }
 
-.detail-card p, .detail-card b, .detail-card h4 {
+.detail-card p, .detail-card b {
     color: #1f2937 !important;
-}
-
-/* Tombol */
-div.stButton > button, div.stLinkButton > a {
-    background-color: #1E5631 !important;
-    color: #ffffff !important;
-    border-radius: 8px !important;
-    font-weight: bold !important;
-    border: none !important;
-    transition: 0.3s !important;
-}
-
-div.stButton > button:hover, div.stLinkButton > a:hover {
-    background-color: #143F23 !important;
-    color: #ffffff !important;
 }
 """
 
-# merge CSS style
+# merge CSS
 st.markdown(
     "<style>" + bg_css + main_css + "</style>", unsafe_allow_html=True
 )
 
-# Subheading
+# Subheading 
 col1, col2, col3 = st.columns([0.2, 3.6, 0.2])
 with col2:
   subheading_file = None
@@ -168,7 +179,7 @@ with col2:
   if subheading_file:
     st.image(subheading_file, use_container_width=True)
 
-# Header Text
+# Header Text 
 st.markdown(
     "<h1 style='text-align: center; margin-top: -30px !important;'>"
     " Pengumuman Lolos Berkas<br>IAAS LC UGM 2026</h1>",
@@ -272,10 +283,9 @@ if submit_button:
             use_container_width=True,
         )
       else:
-        st.error("❌ **MOHON MAAF, Anda Dinyatakan BELUM LOLOS.**")
+        st.error("❌ **LU DAH JADI ANGGOTA KOCAK 🖐️🤪🖐️**")
         st.write(
-            "Terima kasih telah berpartisipasi dalam Seleksi IAAS LC UGM 2026."
-            " Tetap semangat!"
+            "Dah lu jadi member yang baik aja dah kata gw"
         )
 
     else:
